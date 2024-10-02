@@ -1,6 +1,6 @@
 'use client'
 
-import { SignInButton, SignOutButton, useAuth } from '@clerk/nextjs'
+import { SignOutButton, useAuth } from '@clerk/nextjs'
 import { ModeToggle } from '@/components/mode-toggle'
 
 export default function Home() {
@@ -23,30 +23,10 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col items-center justify-center flex-1">
-        {!sessionId ? (
-          <div className={buttonClass}>
-            <SignInButton />
-          </div>
-        ) : (
+        {sessionId ? (
           <p className="text-lg">You're signed in.</p>
-        )}
+        ) : null}
       </div>
     </div>
   )
 }
-
-
-
-
-
-// import { ModeToggle } from "@/components/mode-toggle";
-// import { UserButton } from "@clerk/nextjs";
-
-// export default function Home() {
-//   return (
-//     <div>
-//       <UserButton afterSignOutUrl="/" />
-//       <ModeToggle />
-//     </div>
-//   );
-// }
