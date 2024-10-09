@@ -24,7 +24,7 @@ export default function Home() {
 
       <div className="flex flex-col items-center justify-center flex-1">
         {sessionId ? (
-          <p className="text-lg">You're signed in.</p>
+          <p className="text-lg">You&apos;re signed in.</p>
         ) : null}
       </div>
     </div>
