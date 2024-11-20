@@ -14,8 +14,10 @@ const nextConfig = {
                 protocol: "https",
                 hostname: "utfs.io",
             }
-        ]
-    }
+        ],
+    },
+    // maybe don't need productionBrowserSourceMaps
+    productionBrowserSourceMaps: false,
 };
 
 export default nextConfig;

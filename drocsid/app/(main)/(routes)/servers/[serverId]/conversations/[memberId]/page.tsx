@@ -42,13 +42,13 @@ const MemberIdPage = async ({
         return redirect("/");
     }
 
-    const conersation = await getOrCreateConversation(currentMember.id, params.memberId);
+    const conversation = await getOrCreateConversation(currentMember.id, params.memberId);
 
-    if (!conersation) {
+    if (!conversation) {
         return redirect(`/servers/${params.serverId}`);
     }
 
-    const { memberOne, memberTwo } = conersation;
+    const { memberOne, memberTwo } = conversation;
 
     const otherMember = memberOne.profileId === profile.id ? memberTwo : memberOne;
 
@@ -62,7 +62,7 @@ const MemberIdPage = async ({
             />
             {searchParams.video && (
                 <MediaRoom 
-                    chatId={conersation.id}
+                    chatId={conversation.id}
                     video={true}
                     audio={true}
                 />   
@@ -72,14 +72,14 @@ const MemberIdPage = async ({
                     <ChatMessages 
                         member={currentMember}
                         name={otherMember.profile.name}
-                        chatId={conersation.id}
+                        chatId={conversation.id}
                         type="conversation"
                         apiUrl="/api/direct-messages"
                         paramKey="conversationId"
-                        paramValue={conersation.id}
+                        paramValue={conversation.id}
                         socketUrl="/api/socket/direct-messages"
                         socketQuery={{
-                            conversationId: conersation.id,
+                            conversationId: conversation.id,
                         }}
                     />
                     <ChatInput 
@@ -87,7 +87,7 @@ const MemberIdPage = async ({
                         type="conversation"
                         apiUrl="/api/socket/direct-messages"
                         query={{
-                            conversationId: conersation.id,
+                            conversationId: conversation.id,
                         }}
                     />
                 </>
