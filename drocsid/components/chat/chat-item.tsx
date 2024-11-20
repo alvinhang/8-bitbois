@@ -162,9 +162,12 @@ export const ChatItem = ({
                                 src={fileUrl}
                                 alt={content}
                                 fill
+                                sizes="(max-width: 768px) 100vw, 
+                                    (max-width: 1200px) 50vw, 
+                                    33vw"
                                 className="object-cover"
                             />
-                        </a>   
+                        </a>
                     )}
                     {isPDF && (
                         <div className="relative flex items-center p-2 mt-2 rounded-md bg-background/10">
