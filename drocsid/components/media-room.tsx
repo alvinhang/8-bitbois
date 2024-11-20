@@ -22,7 +22,7 @@ export const MediaRoom = ({
     const [token, setToken] = useState("");
 
     useEffect(() => {
-        if (!user?.firstName || !user?.lastName) return;
+        if (!user?.firstName && !user?.lastName) return;
 
         const name = `${user.firstName} ${user.lastName}`;
 
